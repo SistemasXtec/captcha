@@ -199,7 +199,7 @@ class Captcha
      *
      * @param Filesystem $files
      * @param Repository $config
-     * @param ImageManager $imageManager
+     * @param Intervention\Image\ImageManager $imageManager
      * @param Session $session
      * @param Hasher $hasher
      * @param Str $str
@@ -209,7 +209,7 @@ class Captcha
     public function __construct(
         Filesystem $files,
         Repository $config,
-        ImageManager $imageManager,
+        Intervention\Image\ImageManager $imageManager,
         Session $session,
         Hasher $hasher,
         Str $str
