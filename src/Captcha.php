@@ -209,7 +209,6 @@ class Captcha
     public function __construct(
         Filesystem $files,
         Repository $config,
-        $imageManager,  //Used to be Intervention\Image\ImageManager, but it conflicts with Folklore\Image\ImageManager
         Session $session,
         Hasher $hasher,
         Str $str
