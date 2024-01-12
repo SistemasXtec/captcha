@@ -45,7 +45,7 @@ class Captcha
     protected $config;
 
     /**
-     * @var ImageManager
+     * @var \Intervention\Image\ImageManager
      */
     protected $imageManager;
 
@@ -65,7 +65,7 @@ class Captcha
     protected $str;
 
     /**
-     * @var ImageManager->canvas
+     * @var \Intervention\Image\ImageManager->canvas
      */
     protected $canvas;
 
@@ -199,7 +199,7 @@ class Captcha
      *
      * @param Filesystem $files
      * @param Repository $config
-     * @param Intervention\Image\ImageManager $imageManager
+     * @param \Intervention\Image\ImageManager $imageManager
      * @param Session $session
      * @param Hasher $hasher
      * @param Str $str
@@ -209,14 +209,14 @@ class Captcha
     public function __construct(
         Filesystem $files,
         Repository $config,
-        Intervention\Image\ImageManager $imageManager,
+        $imageManager,  //Used to be Intervention\Image\ImageManager, but it conflicts with Folklore\Image\ImageManager
         Session $session,
         Hasher $hasher,
         Str $str
     ) {
         $this->files = $files;
         $this->config = $config;
-        $this->imageManager = $imageManager;
+        $this->imageManager = new \Intervention\Image\ImageManager();
         $this->session = $session;
         $this->hasher = $hasher;
         $this->str = $str;
@@ -440,7 +440,7 @@ class Captcha
     /**
      * Random image lines
      *
-     * @return Image|ImageManager
+     * @return Image|\Intervention\Image\ImageManager
      */
     protected function lines()
     {
