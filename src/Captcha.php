@@ -209,14 +209,13 @@ class Captcha
     public function __construct(
         Filesystem $files,
         Repository $config,
-        ImageManager $imageManager,
         Session $session,
         Hasher $hasher,
         Str $str
     ) {
         $this->files = $files;
         $this->config = $config;
-        $this->imageManager = $imageManager;
+        $this->imageManager = new \Intervention\Image\ImageManager();
         $this->session = $session;
         $this->hasher = $hasher;
         $this->str = $str;
